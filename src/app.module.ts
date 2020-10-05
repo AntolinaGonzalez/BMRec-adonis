@@ -5,8 +5,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersService } from './users/users.service';
 import { UsersModule } from './users/users.module';
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/bmrec'), UsersModule],
+  imports: [UsersModule,MongooseModule.forRoot('mongodb://localhost/bmrec'), UsersModule],
   controllers: [AppController],
-  providers: [AppService, UsersService],
+  providers: [AppService],
 })
 export class AppModule {}
