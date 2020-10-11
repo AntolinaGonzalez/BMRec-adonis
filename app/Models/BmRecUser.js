@@ -4,14 +4,12 @@
 const Model = use("Model");
 const Hash = use("Hash");
 class BmRecUser extends Model {
-  static boot () {
-    super.boot()
+  static boot() {
+    super.boot();
 
-    this.addHook('beforeCreate', async (userInstance) => {
-      console.log('lainstance',userInstance.password)
-      userInstance.password = await Hash.make(userInstance.password)
-      console.log('lainstance2',userInstance.password)
-    })
+    this.addHook("beforeCreate", async (userInstance) => {
+      userInstance.password = await Hash.make(userInstance.password);
+    });
   }
   static get table() {
     return "bm_rec_users";
@@ -20,7 +18,6 @@ class BmRecUser extends Model {
   static get primaryKey() {
     return "id";
   }
-
 }
 
 module.exports = BmRecUser;
