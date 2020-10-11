@@ -31,6 +31,21 @@ class UserController {
     await auth.logout();
     return { message: "log out" };
   }
+
+  async update({ request, response, auth }) {
+    const user = auth.user;
+    const userData = request.only([
+      "username",
+      "first_name",
+      "last_name",
+      "email",
+      "password",
+    ]);
+
+    user.merge(userData);
+    user.save();
+    return response.status(201).json(user);
+  }
 }
 
 module.exports = UserController;
