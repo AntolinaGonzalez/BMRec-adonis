@@ -17,10 +17,9 @@ class UserController {
 
   async login({ auth, request }) {
     const { email, password } = request.all();
-
-    const user = await auth.attempt(email, password);
-
-    return response.status(201).json(user);
+    console.log(email,password)
+    await auth.attempt(email, password);
+    return {message: 'login'}
   }
 
   async show({ auth, params }) {
