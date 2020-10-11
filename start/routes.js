@@ -26,5 +26,9 @@ Route.delete("/delete", "UserController.delete");
 
 /* RECOMMENDATIONS */
 Route.post("recommendation", "RecommendationController.store");
-Route.put("recommendation/:id", "RecommendationController.update").middleware('auth');
-Route.delete('/delete/:id','RecommendationController.delete')
+Route.put("recommendation/:id", "RecommendationController.update").middleware(
+  "auth"
+);
+Route.delete("/delete/:id", "RecommendationController.delete").middleware(
+  "auth"
+);
