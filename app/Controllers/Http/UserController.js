@@ -46,6 +46,14 @@ class UserController {
     user.save();
     return response.status(201).json(user);
   }
+
+  async delete({ request, response, auth }) {
+    const user = auth.user;
+
+    user.delete();
+
+    return response.status(201);
+  }
 }
 
 module.exports = UserController;
