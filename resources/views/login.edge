@@ -1,0 +1,21 @@
+@layout('layouts.admin')
+
+@section('title')
+Login
+@endsection
+
+
+@section('main')
+<h2>Login</h2>
+<p>Login to your account to start to recommend anything you want!!</p>
+<p>You do not have one?</p>
+<a href="/register">Register!</a>
+<form action="{{ route('UserController.login') }}" method="POST" >
+  {{ csrfField() }}
+<Label>Email:</Label>
+<input type="text" name="email" id="" placeholder="your email">
+<label for="">Password:</label>
+<input type="password" name="password">
+<input type="submit">
+</form>
+@endsection

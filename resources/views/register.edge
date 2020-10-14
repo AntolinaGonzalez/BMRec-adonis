@@ -1,0 +1,26 @@
+@layout('layouts.admin')
+
+@section('title')
+Register
+@endsection
+
+
+@section('main')
+<h2>Register</h2>
+<p>Create an account to start to recommend anything you want!</p>
+<p>YYou alredy have an account?</p>
+<a href="/">Login!</a>
+<form action="{{ route('UserController.login') }}" method="POST" >
+<Label>First Name:</Label>
+<input type="text" name="email" id="" placeholder="your name">
+<Label>Last Name:</Label>
+<input type="text" name="email" id="" placeholder="your last name">
+<Label>Username:</Label>
+<input type="text" name="email" id="" placeholder="Be creative!">
+<Label>Email:</Label>
+<input type="email" name="email" id="" placeholder="your email">
+<label for="">Password:</label>
+<input type="password">
+<input type="submit">
+</form>
+@endsection
