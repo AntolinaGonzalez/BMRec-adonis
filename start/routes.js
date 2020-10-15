@@ -18,8 +18,10 @@ const Route = use("Route");
 
 Route.on("/login").render("login");
 Route.on("/register").render("register");
-Route.on("/admin").render("admin.index");
+
 Route.on("/new").render("admin.createRec");
+Route.get("/admin",'admin/HomeController.index').middleware('auth');
+Route.get("/edit/:id",'admin/HomeController.edit').middleware('auth');
 Route.get("/","HomeController.index");
 Route.get("/:id","HomeController.show");
 Route.post("/users", "UserController.store");
