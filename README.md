@@ -1,31 +1,14 @@
-# Adonis fullstack application
+# Project: Recommendations
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+## This project is to show my knowledge in adonisjs
 
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+It is about to recommend things, anything a book, a movie, a thought an idea, whatever you want!
 
-## Setup
+Everyone can see everything but you can just recommend things if you are logged in
 
-Use the adonis command to install the blueprint
+Next Steps:
 
-```bash
-adonis new yardstick
-```
+- Improve styles
+- Deploy
+- Allow comments on each recommendation
 
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
