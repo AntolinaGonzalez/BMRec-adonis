@@ -15,20 +15,19 @@ class UserController {
     return response.status(201).json(user);
   }
 
-  async login({ auth, request }) {
+  async login({ auth, request,view }) {
     const { email, password } = request.all();
-    console.log(email,password)
     await auth.attempt(email, password);
-    return {message: 'login'}
+    return view.render('admin.index')
   }
 
   async show({ auth, params }) {
     return await auth.user;
   }
 
-  async logout({ auth }) {
+  async logout({ auth,view }) {
     await auth.logout();
-    return { message: "log out" };
+    return view.render('index')
   }
 
   async update({ request, response, auth }) {
