@@ -3,7 +3,11 @@ const Recommendation = use("App/Models/Recommendation");
 class RecommendationController {
   async store({ request, response, auth }) {
     const user = auth.user;
-    const recommendationData = request.only(["title", "description"]);
+    const recommendationData = request.only([
+      "title",
+      "description",
+      "summary",
+    ]);
 
     const recommendation = await Recommendation.create({
       ...recommendationData,
@@ -18,7 +22,11 @@ class RecommendationController {
   }
   async update({ request, response, params, view }) {
     const recommendation = await Recommendation.find(params.id);
-    const recommendationData = request.only(["title", "description"]);
+    const recommendationData = request.only([
+      "title",
+      "description",
+      "summary",
+    ]);
     recommendation.merge(recommendationData);
     recommendation.save();
 
