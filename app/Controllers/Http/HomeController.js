@@ -9,7 +9,7 @@ class HomeController {
 
   async show({ view, params }) {
     const recommendation = await Recommendation.find(params.id);
-
+    
     return view.render('show',{recommendation: recommendation.toJSON()});
   }
 }
