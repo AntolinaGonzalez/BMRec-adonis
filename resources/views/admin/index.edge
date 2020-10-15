@@ -10,7 +10,16 @@ BMRec
 @endsection
 @section('main')
 <div class="container">
-  <h1 class="center-class">Your Recommendations!</h1>
+  <div class="center-class">
+    <h1 >Your Recommendations!</h1>
+  <p class="paragrafh">Something new? special?</p>
+  <p class="paragrafh">Tell us about it</p>
+  <div class="new-recom">
+    <a href="{{ route('RecommendationController.create') }}">Recommend it!</a>
+  </div>
+  </div>
+
+
   <div class="row row-cols-3">
     @each(recommendation in recommendations)
     <div class="col">
@@ -18,8 +27,16 @@ BMRec
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <div class="opt">
-            <a href="{{ route('admin/HomeController.edit', { id:recommendation.id }) }}"><i class="fas fa-pencil-alt"></i></a>
-            <a href="/delete/{{recommendation.id}}?_method=delete"><i class="fas fa-trash"></i></a>
+            <div>
+              <a class="d-inline-block" href="{{ route('admin/HomeController.edit', { id:recommendation.id }) }}"><i class="fas fa-pencil-alt"></i></a>
+              <form class="d-inline-block" method="POST" action="/delete/{{recommendation.id}}?_method=delete">
+                {{ csrfField() }}
+                <input type="hidden" name="method" value="DELETE">
+                <button type="submit" class="btn text-danger btn-sm">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </form>
+            </div>
           </div>
           <h5 class="card-title">{{recommendation.title}}</h5>
           <p class="card-text">{{recommendation.description}}</p>

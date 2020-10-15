@@ -53,3 +53,17 @@
   margin-bottom: 0;
   padding: 1px;
 }
+.new-recom{
+padding: 5px;
+background-color: #9b28b7;
+width: fit-content;
+border-radius: 5%;
+align-items: center;
+margin: auto;
+margin-bottom: 2%;
+}
+.new-recom a{
+  text-decoration:  none;
+  color: aliceblue;
+
+}
