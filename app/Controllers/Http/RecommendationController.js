@@ -13,18 +13,20 @@ class RecommendationController {
     return response.status(201).json(recommendation);
   }
 
-  async update({ request, response,params }) {
+  async update({ request, response,params,view }) {
     const recommendation = await Recommendation.find(params.id);
     const recommendationData = request.only(["title", "description"]);
     recommendation.merge(recommendationData);
     recommendation.save();
 
-    return response.status(201).json(recommendation);
+    return response.redirect('/admin')
   }
 
   async delete({request,response,params}){
     const recommendation = await Recommendation.find(params.id);
     recommendation.delete()
+
+    return response.redirect('/admin')
   }
 }
 
