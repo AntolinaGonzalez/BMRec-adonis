@@ -13,20 +13,23 @@ class RecommendationController {
     return response.status(201).json(recommendation);
   }
 
-  async update({ request, response,params,view }) {
+  create({ view }) {
+    return view.render("admin.createRec");
+  }
+  async update({ request, response, params, view }) {
     const recommendation = await Recommendation.find(params.id);
     const recommendationData = request.only(["title", "description"]);
     recommendation.merge(recommendationData);
     recommendation.save();
 
-    return response.redirect('/admin')
+    return response.redirect("/admin");
   }
 
-  async delete({request,response,params}){
+  async delete({ request, response, params }) {
     const recommendation = await Recommendation.find(params.id);
-    recommendation.delete()
+    recommendation.delete();
 
-    return response.redirect('/admin')
+    return response.redirect("/admin");
   }
 }
 
