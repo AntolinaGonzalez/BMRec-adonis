@@ -6,8 +6,14 @@ BMRec
 
 @section('nav')
 <div>
+  @if(user)
+  <a href="{{ route('admin/HomeController.index')}}" class="navbar-brand">Recommendations</a>
+  <a href="{{route('UserController.logout')}}" class="navbar-brand">Logout</a>
+  @else
   <a href="/register" class="navbar-brand">Register</a>
   <a href="/login" class="navbar-brand">Login</a>
+  @endif
+
 </div>
 
 
