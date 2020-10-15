@@ -34,6 +34,11 @@
 .center-space{
   margin-top: 13%;
 }
-header{
+.navbar-style{
   margin-bottom: 20px;
+}
+.btn-style{
+  border: none;
+  border-radius: 20px;
+  width: 100%;
 }
