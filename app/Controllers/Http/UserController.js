@@ -6,17 +6,22 @@ class UserController {
     await auth.logout();
     return view.render("index");
   }
-  async store({ request, response, auth }) {
-    const userData = request.only([
-      "username",
-      "first_name",
-      "last_name",
-      "email",
-      "password",
-    ]);
-    const user = await User.create(userData);
-    await auth.login(user);
-    return response.status(201).json(user);
+  async store({ request, response, auth, view }) {
+    try {
+      const userData = request.only([
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "password",
+      ]);
+      const user = await User.create(userData);
+      console.log(user);
+      await auth.login(user);
+      return response.status(201).json(user);
+    } catch (err) {
+      return view.render("index");
+    }
   }
 
   async login({ auth, request, view }) {
