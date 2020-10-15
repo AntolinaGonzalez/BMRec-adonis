@@ -10,7 +10,7 @@ class RecommendationController {
       user_id: user.id,
     });
 
-    return response.status(201).json(recommendation);
+    return response.redirect("/admin");
   }
 
   create({ view }) {
