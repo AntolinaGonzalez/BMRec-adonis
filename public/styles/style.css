@@ -42,3 +42,14 @@
   border-radius: 20px;
   width: 100%;
 }
+.opt{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: .5px;
+}
+.opt a i{
+  color: blueviolet;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1px;
+}
