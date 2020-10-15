@@ -1,0 +1,27 @@
+@layout('layouts.admin')
+
+@section('title')
+BMRec
+@endsection
+
+@section('nav')
+<div>
+  <a href="/register" class="navbar-brand">Register</a>
+  <a href="/login" class="navbar-brand">Login</a>
+</div>
+
+
+@endsection
+@section('main')
+<div class="container center-class">
+  <h1>Do you like it?</h1>
+  <p class="paragrafh">Soon you will be able to comment! Wait us!</p>
+  <div class="jumbotron">
+  <h1 class="display-4">{{recommendation.title}}</h1>
+  <p class="lead">{{recommendation.description}}</p>
+    <hr class="my-4">
+    <p>Login to comment</p>
+    <a class="btn btn-primary btn-lg btn-style" href="/login" role="button">Login</a>
+  </div>
+</div>
+@endsection
