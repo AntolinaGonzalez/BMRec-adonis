@@ -5,37 +5,71 @@ BMRec
 @endsection
 
 @section('nav')
-<a href="/login" class="navbar-brand">Login</a>
+<div>
+  <a href="/register" class="navbar-brand">Register</a>
+  <a href="/login" class="navbar-brand">Login</a>
+</div>
+
 
 @endsection
 @section('main')
-<div class="container">
-  <h1 class="center-class">Take a look</h1>
+<div class="container center-class">
+  <h1>Take a look</h1>
+  <p class="paragrafh">You can see the last recommendations. Enjoy!</p>
+  <p class="paragrafh">Future actualizations: You will be able to comments and discuss posts</p>
   <div class="row row-cols-3">
-    <div class="col"><div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    @each(recommendation in recommendations)
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{recommendation.title}}</h5>
+          <p class="card-text">{{recommendation.description}}</p>
+          <a href="{{ route('HomeController.show', { id:recommendation.id })}}" class="btn btn-primary btn-style">See</a>
+        </div>
       </div>
-    </div></div>
-    <div class="col"><div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    @endeach
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary btn-style">See</a>
+        </div>
       </div>
-    </div></div>
-    <div class="col"><div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary btn-style">See</a>
+        </div>
       </div>
-    </div></div>
-    <div class="col"><div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary btn-style">See</a>
+        </div>
       </div>
-    </div></div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary btn-style">Go somewhere</a>
+        </div>
+      </div>
+  </div>
   </div>
 </div>
 @endsection
