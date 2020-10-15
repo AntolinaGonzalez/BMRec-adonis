@@ -17,6 +17,8 @@ class HomeController {
       recommendation: recommendation.toJSON(),
     });
   }
+
+  
 }
 
 module.exports = HomeController;
