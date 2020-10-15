@@ -5,6 +5,11 @@ class HomeController {
   async index({ view, auth }) {
     const user = auth.user;
     const recommendations = await Recommendation.all();
+    if (!user) {
+      return view.render("index", {
+        recommendations: recommendations.toJSON(),
+      });
+    }
     return view.render("index", {
       recommendations: recommendations.toJSON(),
       user: user.toJSON(),
@@ -13,7 +18,9 @@ class HomeController {
 
   async show({ view, params }) {
     const recommendation = await Recommendation.find(params.id);
-
+    if (!recommendation) {
+      return view.render("show");
+    }
     return view.render("show", { recommendation: recommendation.toJSON() });
   }
 }

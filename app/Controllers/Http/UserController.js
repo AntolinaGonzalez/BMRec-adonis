@@ -2,6 +2,12 @@
 const User = use("App/Models/BmRecUser");
 
 class UserController {
+  
+  async logout({ auth,view }) {
+    console.log('hola')
+    await auth.logout();
+    return view.render('index')
+  }
   async store({ request, response, auth }) {
     const userData = request.only([
       "username",
@@ -25,10 +31,7 @@ class UserController {
     return await auth.user;
   }
 
-  async logout({ auth,view }) {
-    await auth.logout();
-    return view.render('index')
-  }
+
 
   async update({ request, response, auth }) {
     const user = auth.user;
