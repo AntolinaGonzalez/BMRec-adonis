@@ -3,10 +3,13 @@ const Recommendation = use("App/Models/Recommendation");
 
 class HomeController {
   async index({ view, auth }) {
-    const recommendations = await Recommendation.query().with("user").fetch();
+    const user = auth.user.id;
+    let recommedations = await Recommendation.query()
+      .where("user_id", user)
+      .fetch();
 
     return view.render("admin.index", {
-      recommendations: recommendations.toJSON(),
+      recommendations: recommedations.toJSON(),
     });
   }
 

@@ -20,10 +20,16 @@ BMRec
 
 @endsection
 @section('main')
-<div class="container center-class">
-  <h1>Take a look</h1>
-  <p class="paragrafh">You can see the last recommendations. Enjoy!</p>
-  <p class="paragrafh">Future actualizations: You will be able to comments and discuss posts</p>
+<div class="container-fluid ">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Take a look</h1>
+      <p class="lead">You can see the last recommendations. Enjoy!</p>
+      <p class="paragrafh">Future actualizations: You will be able to comments and discuss posts</p>
+
+    </div>
+  </div>
+
   <div class="row row-cols-3">
     @each(recommendation in recommendations)
     <div class="col">

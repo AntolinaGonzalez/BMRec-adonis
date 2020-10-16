@@ -2,12 +2,11 @@
 const User = use("App/Models/BmRecUser");
 
 class UserController {
-  async logout({ auth, view }) {
-    await auth.logout();
-    return view.render("index");
-  }
+
   async store({ request, response, auth, view }) {
+    console.log('holaaa')
     try {
+      console.log('holaaa2')
       const userData = request.only([
         "username",
         "first_name",
@@ -15,19 +14,23 @@ class UserController {
         "email",
         "password",
       ]);
+      console.log(userData)
       const user = await User.create(userData);
       console.log(user);
       await auth.login(user);
-      return response.status(201).json(user);
+      return response.redirect("/admin");
     } catch (err) {
-      return view.render("index");
+      return response.redirect("/admin");
     }
   }
-
-  async login({ auth, request, view }) {
+  async logout({ auth, view, response }) {
+    await auth.logout();
+    return response.redirect("/");
+  }
+  async login({ auth, request, view, response }) {
     const { email, password } = request.all();
     await auth.attempt(email, password);
-    return view.render("admin.index");
+    return response.redirect("/admin");
   }
 
   async show({ auth, params }) {

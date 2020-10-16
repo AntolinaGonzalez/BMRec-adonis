@@ -1,3 +1,10 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+h1{
+  color: crimson;
+}
 .page-title {
   margin-bottom: 40px;
 }
@@ -36,11 +43,23 @@
 }
 .navbar-style{
   margin-bottom: 20px;
+  background-color: #ce5258;
+}
+.navbar-style a{
+  color: white;
 }
 .btn-style{
   border: none;
   border-radius: 20px;
   width: 100%;
+}
+.btn-form{
+  border: none;
+  border-radius: 20px;
+  width: 20%;
+}
+.end-class{
+  text-align: end;
 }
 .opt{
   display: flex;
@@ -59,7 +78,6 @@ background-color: #9b28b7;
 width: fit-content;
 border-radius: 5%;
 align-items: center;
-margin: auto;
 margin-bottom: 2%;
 }
 .new-recom a{

@@ -9,14 +9,22 @@ BMRec
 
 @endsection
 @section('main')
-<div class="container">
-  <div class="center-class">
-    <h1 >Your Recommendations!</h1>
-  <p class="paragrafh">Something new? special?</p>
-  <p class="paragrafh">Tell us about it</p>
-  <div class="new-recom">
-    <a href="{{ route('RecommendationController.create') }}">Recommend it!</a>
+<div class="container-fluid">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Your Recommendations!</h1>
+      <p class="lead">Something new? special?</p>
+      <p class="paragrafh">Tell us about it</p>
+      <div class="new-recom">
+        <a href="{{ route('RecommendationController.create') }}">Recommend it!</a>
+      </div>
+
+    </div>
   </div>
+  <div class="center-class">
+
+
+
   </div>
 
 
